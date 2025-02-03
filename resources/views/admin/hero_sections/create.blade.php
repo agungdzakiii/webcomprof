@@ -38,9 +38,9 @@
                     </div>
 
                     <div class="mt-4">
-                        <x-input-label for="achievement" :value="__('achievement')" />
-                        <x-text-input id="achievement" class="block mt-1 w-full" type="text" name="achievement" :value="old('achievement')" required autofocus autocomplete="achievement" />
-                        <x-input-error :messages="$errors->get('achievement')" class="mt-2" />
+                        <x-input-label for="achievement" :value="__('achievment')" />
+                        <x-text-input id="achievment" class="block mt-1 w-full" type="text" name="achievment" :value="old('achievment')" required autofocus autocomplete="achievment" />
+                        <x-input-error :messages="$errors->get('achievment')" class="mt-2" />
                     </div>
 
                     <div class="mt-4">
