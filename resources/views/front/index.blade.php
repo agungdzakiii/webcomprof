@@ -1,18 +1,7 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="{{asset('css/output.css')}}" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <!-- CSS for carousel/flickity-->
-  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/flickity-fade@2/flickity-fade.css">
-  
-  <!-- CSS for modal/flowbite -->
-  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"  rel="stylesheet" /> -->
-</head>
-<body class="font-poppins text-cp-black">
+@extends('front.layouts.app')
+@section('content')
+
+
   <div id="header" class="bg-[#F6F7FA] relative overflow-hidden">
     <div class="container max-w-[1130px] mx-auto relative pt-10 z-10">
         <nav class="flex flex-wrap items-center justify-between bg-white p-[20px_30px] rounded-[20px] gap-y-3">
@@ -832,6 +821,9 @@
       </div>
   </div>
 
+  @endsection
+
+  @push('after-scripts')
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
   <!-- JavaScript -->
@@ -841,5 +833,4 @@
   <script src="{{asset('js/accordion.js')}}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
   <script src="{{asset('js/carousel.js')}}"></script>
-</body>
-</html>
+  @endpush
