@@ -28,6 +28,7 @@
                             <option value="{{$testimonial->client->id}} ">{{$testimonial->client->name}}</option> 
                             @foreach($clients as $client)
                             <option value="{{$client->id}}">{{$client->name}}</option>
+                            @endforeach
                         </select>
 
                         <x-input-error :messages="$errors->get('project_client')" class="mt-2" />
@@ -41,7 +42,7 @@
 
                     <div class="mt-4">
                         <x-input-label for="thumbnail" :value="__('thumbnail')" />
-                        <img src="{{Storage::url($testimonal->thumbnail)}} " alt="" class="rounded-2xl object-cover w-[90px] h-[90px]">
+                        <img src="{{Storage::url($testimonial->thumbnail)}} " alt="" class="rounded-2xl object-cover w-[90px] h-[90px]">
                         <x-text-input id="thumbnail" class="block mt-1 w-full" type="file" name="thumbnail" autofocus autocomplete="thumbnail" />
                         <x-input-error :messages="$errors->get('thumbnail')" class="mt-2" />
                     </div> 
