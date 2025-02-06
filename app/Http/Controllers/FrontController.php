@@ -48,10 +48,12 @@ class FrontController extends Controller
     }
 
     public function appointment_store(StoreAppointmentRequest $request) {
-        DB::transaction(function() use ($request) {
+        DB ::transaction(function() use ($request) {
             $validated = $request->validated();
             $newAppointment = Appointment::create($validated);
+            
         });
         return redirect()->route('front.index');
+        
     }
 }
