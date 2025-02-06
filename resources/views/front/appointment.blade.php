@@ -36,7 +36,8 @@
         </div>
       </div>
     </div>
-    <form action="" class="flex flex-col p-[30px] rounded-[20px] gap-[18px] bg-white shadow-[0_10px_30px_0_#D1D4DF40] w-full md:w-[700px] shrink-0">
+    <form action="{{route('front.appointment_store')}}" method="POST" class="flex flex-col p-[30px] rounded-[20px] gap-[18px] bg-white shadow-[0_10px_30px_0_#D1D4DF40] w-full md:w-[700px] shrink-0">
+      @csrf
       <div class="flex items-center gap-[18px]">
         <div class="flex flex-col gap-2 flex w-full">
           <p class="font-semibold">Complete Name</p>
@@ -44,7 +45,7 @@
             <div class="w-[18px] h-[18px] flex shrink-0">
               <img src="assets/icons/profile.svg" alt="icon">
             </div>
-            <input type="text" name="" id="" class="appearance-none outline-none bg-white placeholder:font-normal placeholder:text-cp-black font-semibold w-full" placeholder="Write your complete name" required>
+            <input type="text" name="name" id="" class="appearance-none outline-none bg-white placeholder:font-normal placeholder:text-cp-black font-semibold w-full" placeholder="Write your complete name" required>
           </div>
         </div>
         <div class="flex flex-col gap-2 flex w-full">
@@ -53,7 +54,7 @@
             <div class="w-[18px] h-[18px] flex shrink-0">
               <img src="assets/icons/sms.svg" alt="icon">
             </div>
-            <input type="email" name="" id="" class="appearance-none outline-none bg-white placeholder:font-normal placeholder:text-cp-black font-semibold w-full" placeholder="Write your email address" required>
+            <input type="email" name="email" id="" class="appearance-none outline-none bg-white placeholder:font-normal placeholder:text-cp-black font-semibold w-full" placeholder="Write your email address" required>
           </div>
         </div>
       </div>
@@ -64,7 +65,7 @@
             <div class="w-[18px] h-[18px] flex shrink-0">
               <img src="assets/icons/call-black.svg" alt="icon">
             </div>
-            <input type="tel" name="" id="" class="appearance-none outline-none bg-white placeholder:font-normal placeholder:text-cp-black font-semibold w-full" placeholder="Write your phone number" required>
+            <input type="tel" name="phone_number" id="" class="appearance-none outline-none bg-white placeholder:font-normal placeholder:text-cp-black font-semibold w-full" placeholder="Write your phone number" required>
           </div>
         </div>
         <div class="flex flex-col gap-2 flex w-full">
@@ -74,7 +75,7 @@
               <img src="assets/icons/calendar.svg" alt="icon">
             </div>
             <button type="button" id="dateButton" class="p-0 bg-transparent w-full text-left border-none outline-none">Choose the date</button>
-            <input type="date" name="" id="dateInput" class="absolute opacity-0 -z-10">
+            <input type="date" name="meeting_at" id="dateInput" class="absolute opacity-0 -z-10">
           </div>
         </div>
       </div>
@@ -85,18 +86,12 @@
             <div class="w-[18px] h-[18px] flex shrink-0">
               <img src="assets/icons/building-4-black.svg" alt="icon">
             </div>
-            <select name="" id="" class="appearance-none outline-none w-full invalid:font-normal font-semibold px-[10px] -mx-[10px]" required>
+            <select name="product_id" id="" class="appearance-none outline-none w-full invalid:font-normal font-semibold px-[10px] -mx-[10px]" required>
               <option value="" hidden>Choose a project</option>
-              <option value="Residential Complex">Residential Complex</option>
-              <option value="Commercial Building">Commercial Building</option>
-              <option value="Mixed-Use Development">Mixed-Use Development</option>
-              <option value="Office Tower">Office Tower</option>
-              <option value="Industrial Facility">Industrial Facility</option>
-              <option value="Retail Center">Retail Center</option>
-              <option value="Healthcare Facility">Healthcare Facility</option>
-              <option value="Hospitality Project">Hospitality Project</option>
-              <option value="Civic Center">Civic Center</option>
-              <option value="Transportation Hub">Transportation Hub</option>
+              @foreach($products as $product)
+              <option value="{{$product->id}}">{{$product->name}}</option>
+              @endforeach
+              
             </select>
           </div>
         </div>
@@ -106,7 +101,7 @@
             <div class="w-[18px] h-[18px] flex shrink-0">
               <img src="assets/icons/dollar-square.svg" alt="icon">
             </div>
-            <input type="number" name="" id="" class="appearance-none outline-none bg-white placeholder:font-normal placeholder:text-cp-black font-semibold w-full" placeholder="What is your budget" required>
+            <input type="number" name="budget" id="" class="appearance-none outline-none bg-white placeholder:font-normal placeholder:text-cp-black font-semibold w-full" placeholder="What is your budget" required>
           </div>
         </div>
       </div>
@@ -116,7 +111,7 @@
           <div class="w-[18px] h-[18px] flex shrink-0 mt-[3px]">
             <img src="assets/icons/message-text.svg" alt="icon">
           </div>
-          <textarea name="" id="" rows="6" class="appearance-none outline-none bg-white placeholder:font-normal placeholder:text-cp-black font-semibold w-full resize-none" placeholder="Tell us the project brief"></textarea>
+          <textarea name="brief" id="" rows="6" class="appearance-none outline-none bg-white placeholder:font-normal placeholder:text-cp-black font-semibold w-full resize-none" placeholder="Tell us the project brief"></textarea>
         </div>
       </div>
       <button type="submit" class="bg-cp-dark-blue p-5 w-full rounded-xl hover:shadow-[0_12px_30px_0_#312ECB66] transition-all duration-300 font-bold text-white">Book Appointment</button>

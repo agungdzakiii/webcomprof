@@ -318,7 +318,7 @@
               <div class="flex flex-col gap-[10px]">
                   <h2 class="font-bold text-4xl leading-[45px]">Frequently Asked Questions</h2>
               </div>
-              <a href="contact.html" class="p-5 bg-cp-black rounded-xl text-white w-fit font-bold">Contact Us</a>
+              <a href="{{route('front.appointment')}}" class="p-5 bg-cp-black rounded-xl text-white w-fit font-bold">Contact Us</a>
           </div>
           <div class="flex flex-col gap-[30px] sm:w-[603px] shrink-0">
               <div class="flex flex-col p-5 rounded-2xl bg-white w-full">
