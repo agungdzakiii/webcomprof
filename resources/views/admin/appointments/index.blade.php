@@ -27,7 +27,7 @@
                         <h3 class="text-indigo-950 text-xl font-bold">{{$appointment->meeting_at->format('M d, Y')}}</h3>
                     </div>
                     <div class="hidden md:flex flex-row items-center gap-x-3">
-                        <a href="{{route('admin.appointments.show')}} " class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
+                        <a href="{{ route('admin.appointments.show', $appointment) }} " class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
                             Details
                         </a>
                     </div>

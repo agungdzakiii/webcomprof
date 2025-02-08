@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Edit Product') }}
+            {{ __('Edit Products') }}
         </h2>
     </x-slot>
 
@@ -23,14 +23,14 @@
                     <div>
                         <x-input-label for="name" :value="__('Name')" />
                         <x-text-input id="name" class="block mt-1 w-full" type="text" name="name"
-                          value="{{$product->name}}"required autofocus autocomplete="name" />
+                          value="{{$product->name}}" required autofocus autocomplete="name" />
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
                     </div>
 
                     <div class="mt-4">
                         <x-input-label for="tagline" :value="__('tagline')" />
                         <x-text-input id="tagline" class="block mt-1 w-full" type="text" name="tagline" 
-                        value="{{$product->tagline}}"required autofocus autocomplete="tagline" />
+                        value="{{$product->tagline}}" required autofocus autocomplete="tagline" />
                         <x-input-error :messages="$errors->get('tagline')" class="mt-2" />
                     </div>
 
