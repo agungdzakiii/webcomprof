@@ -36,7 +36,9 @@
         </div>
       </div>
     </div>
-    <form action="{{route('front.appointment_store')}}" method="POST" class="flex flex-col p-[30px] rounded-[20px] gap-[18px] bg-white shadow-[0_10px_30px_0_#D1D4DF40] w-full md:w-[700px] shrink-0">
+    
+    <form action="{{ route('front.appointment_store')}}" method="POST" class="flex flex-col p-[30px] rounded-[20px] gap-[18px]
+     bg-white shadow-[0_10px_30px_0_#D1D4DF40] w-full md:w-[700px] shrink-0">
       @csrf
       
       <div class="flex items-center gap-[18px]">

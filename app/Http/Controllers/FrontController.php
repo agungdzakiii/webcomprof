@@ -42,18 +42,21 @@ class FrontController extends Controller
     }
 
     public function appointment() {
-        $testimonials = Testimonial::take(5)->get();
+        $testimonials = Testimonial::take(4)->get();
         $products = Product::take(3)->get();
         return view('front.appointment', compact('testimonials', 'products'));
     }
 
     public function appointment_store(StoreAppointmentRequest $request) {
-        DB ::transaction(function() use ($request) {
-            $validated = $request->validated();
-            $newAppointment = Appointment::create($validated);
-            
-        });
-        return redirect()->route('front.index');
         
-    }
+        DB::transaction(function() use ($request) {
+            $validated = $request->validated();
+            Appointment::create($validated);
+        });
+    
+        return redirect('/')->with('success', 'Appointment created successfully!');
+
+    } 
+    
+
 }

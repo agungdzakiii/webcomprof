@@ -12,8 +12,8 @@ class Appointment extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'name',
         'phone_number',
+        'name',
         'email',
         'meeting_at',
         'budget',
@@ -28,4 +28,18 @@ class Appointment extends Model
     public function product(){
         return $this->belongsTo(Product::class, 'product_id');
     }
+
+    public static function boot()
+{
+    parent::boot();
+
+    static::creating(function ($appointment) {
+        logger('Creating appointment:', $appointment->toArray());
+    });
+
+    static::created(function ($appointment) {
+        logger('Appointment created:', $appointment->toArray());
+    });
+}
+
 }
