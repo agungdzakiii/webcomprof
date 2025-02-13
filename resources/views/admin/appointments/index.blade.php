@@ -35,7 +35,7 @@
                 @empty
                 <p>belum ada data</p>
                 @endforelse
-                {{$appointment->links()}}
+                {{$appointments->links()}}
             </div>
         </div>
     </div>
