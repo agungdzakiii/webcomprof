@@ -4,42 +4,29 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Appointment extends Model
 {
-    //
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'phone_number',
         'name',
-        'email',
-        'meeting_at',
-        'budget',
+        'phone_number',
         'brief',
+        'budget',
+        'email',
+        'meeting_at', // secara default string
         'product_id',
     ];
 
-    protected $casts = [
-        'meeting_at' => 'date', //format method
+    protected $cast = [
+        'meeting_at' => 'date', // kita manipulasi data menjadi date
     ];
 
-    public function product(){
+    public function product(): BelongsTo
+    {
         return $this->belongsTo(Product::class, 'product_id');
     }
-
-    public static function boot()
-{
-    parent::boot();
-
-    static::creating(function ($appointment) {
-        logger('Creating appointment:', $appointment->toArray());
-    });
-
-    static::created(function ($appointment) {
-        logger('Appointment created:', $appointment->toArray());
-    });
-}
-
 }
